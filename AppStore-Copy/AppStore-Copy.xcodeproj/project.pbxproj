@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED8D12E122D3FFDC00D40E42 /* AppsSearchConrtoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D12E022D3FFDC00D40E42 /* AppsSearchConrtoller.swift */; };
 		EDD26FAB22D3F69000A3EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD26FAA22D3F69000A3EC47 /* AppDelegate.swift */; };
 		EDD26FAD22D3F69000A3EC47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD26FAC22D3F69000A3EC47 /* ViewController.swift */; };
 		EDD26FB022D3F69000A3EC47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD26FAE22D3F69000A3EC47 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED8D12E022D3FFDC00D40E42 /* AppsSearchConrtoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchConrtoller.swift; sourceTree = "<group>"; };
 		EDD26FA722D3F69000A3EC47 /* AppStore-Copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppStore-Copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD26FAA22D3F69000A3EC47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDD26FAC22D3F69000A3EC47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED8D12DF22D3FFB500D40E42 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EDD26FBF22D3F86300A3EC47 /* BaseTabController.swift */,
+				ED8D12E022D3FFDC00D40E42 /* AppsSearchConrtoller.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		EDD26F9E22D3F69000A3EC47 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +69,7 @@
 		EDD26FA922D3F69000A3EC47 /* AppStore-Copy */ = {
 			isa = PBXGroup;
 			children = (
+				ED8D12DF22D3FFB500D40E42 /* Controllers */,
 				EDD26FAA22D3F69000A3EC47 /* AppDelegate.swift */,
 				EDD26FAC22D3F69000A3EC47 /* ViewController.swift */,
 				EDD26FAE22D3F69000A3EC47 /* Main.storyboard */,
@@ -65,7 +77,6 @@
 				EDD26FB622D3F69500A3EC47 /* LaunchScreen.storyboard */,
 				EDD26FB922D3F69500A3EC47 /* Info.plist */,
 				EDD26FB122D3F69000A3EC47 /* AppStore_Copy.xcdatamodeld */,
-				EDD26FBF22D3F86300A3EC47 /* BaseTabController.swift */,
 			);
 			path = "AppStore-Copy";
 			sourceTree = "<group>";
@@ -145,6 +156,7 @@
 				EDD26FB322D3F69000A3EC47 /* AppStore_Copy.xcdatamodeld in Sources */,
 				EDD26FAD22D3F69000A3EC47 /* ViewController.swift in Sources */,
 				EDD26FAB22D3F69000A3EC47 /* AppDelegate.swift in Sources */,
+				ED8D12E122D3FFDC00D40E42 /* AppsSearchConrtoller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
