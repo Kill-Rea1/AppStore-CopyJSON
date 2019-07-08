@@ -13,6 +13,7 @@
 		EDD26FB322D3F69000A3EC47 /* AppStore_Copy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDD26FB122D3F69000A3EC47 /* AppStore_Copy.xcdatamodeld */; };
 		EDD26FB522D3F69500A3EC47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDD26FB422D3F69500A3EC47 /* Assets.xcassets */; };
 		EDD26FB822D3F69500A3EC47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD26FB622D3F69500A3EC47 /* LaunchScreen.storyboard */; };
+		EDD26FC022D3F86300A3EC47 /* BaseTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD26FBF22D3F86300A3EC47 /* BaseTabController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EDD26FB422D3F69500A3EC47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDD26FB722D3F69500A3EC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDD26FB922D3F69500A3EC47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDD26FBF22D3F86300A3EC47 /* BaseTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				EDD26FB622D3F69500A3EC47 /* LaunchScreen.storyboard */,
 				EDD26FB922D3F69500A3EC47 /* Info.plist */,
 				EDD26FB122D3F69000A3EC47 /* AppStore_Copy.xcdatamodeld */,
+				EDD26FBF22D3F86300A3EC47 /* BaseTabController.swift */,
 			);
 			path = "AppStore-Copy";
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD26FC022D3F86300A3EC47 /* BaseTabController.swift in Sources */,
 				EDD26FB322D3F69000A3EC47 /* AppStore_Copy.xcdatamodeld in Sources */,
 				EDD26FAD22D3F69000A3EC47 /* ViewController.swift in Sources */,
 				EDD26FAB22D3F69000A3EC47 /* AppDelegate.swift in Sources */,
