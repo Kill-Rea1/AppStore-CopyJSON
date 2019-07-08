@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ED8D12E122D3FFDC00D40E42 /* AppsSearchConrtoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D12E022D3FFDC00D40E42 /* AppsSearchConrtoller.swift */; };
+		ED8D12E422D4037E00D40E42 /* AppsSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D12E322D4037E00D40E42 /* AppsSearchCell.swift */; };
 		EDD26FAB22D3F69000A3EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD26FAA22D3F69000A3EC47 /* AppDelegate.swift */; };
 		EDD26FAD22D3F69000A3EC47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD26FAC22D3F69000A3EC47 /* ViewController.swift */; };
 		EDD26FB022D3F69000A3EC47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD26FAE22D3F69000A3EC47 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		ED8D12E022D3FFDC00D40E42 /* AppsSearchConrtoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchConrtoller.swift; sourceTree = "<group>"; };
+		ED8D12E322D4037E00D40E42 /* AppsSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchCell.swift; sourceTree = "<group>"; };
 		EDD26FA722D3F69000A3EC47 /* AppStore-Copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppStore-Copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD26FAA22D3F69000A3EC47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDD26FAC22D3F69000A3EC47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		ED8D12E222D4035F00D40E42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED8D12E322D4037E00D40E42 /* AppsSearchCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		EDD26F9E22D3F69000A3EC47 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +79,7 @@
 		EDD26FA922D3F69000A3EC47 /* AppStore-Copy */ = {
 			isa = PBXGroup;
 			children = (
+				ED8D12E222D4035F00D40E42 /* View */,
 				ED8D12DF22D3FFB500D40E42 /* Controllers */,
 				EDD26FAA22D3F69000A3EC47 /* AppDelegate.swift */,
 				EDD26FAC22D3F69000A3EC47 /* ViewController.swift */,
@@ -153,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDD26FC022D3F86300A3EC47 /* BaseTabController.swift in Sources */,
+				ED8D12E422D4037E00D40E42 /* AppsSearchCell.swift in Sources */,
 				EDD26FB322D3F69000A3EC47 /* AppStore_Copy.xcdatamodeld in Sources */,
 				EDD26FAD22D3F69000A3EC47 /* ViewController.swift in Sources */,
 				EDD26FAB22D3F69000A3EC47 /* AppDelegate.swift in Sources */,
