@@ -49,7 +49,7 @@ class SearchPageController: BaseCollectionController, UICollectionViewDelegateFl
                     print(error)
                     return
                 }
-                self.appResults = results
+                self.appResults = results?.results ?? []
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
@@ -63,7 +63,7 @@ class SearchPageController: BaseCollectionController, UICollectionViewDelegateFl
                 print(error)
                 return
             }
-            self.appResults = results
+            self.appResults = results?.results ?? []
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
