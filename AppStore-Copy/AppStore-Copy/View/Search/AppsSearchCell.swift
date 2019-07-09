@@ -10,7 +10,7 @@ import UIKit
 
 class AppsSearchCell: UICollectionViewCell {
     
-    var app: Result! {
+    public var app: Result! {
         didSet {
             nameLabel.text = app.trackName
             categoryLabel.text = app.primaryGenreName
@@ -26,7 +26,7 @@ class AppsSearchCell: UICollectionViewCell {
         }
     }
     
-    public let appIconImageView: UIImageView = {
+    fileprivate let appIconImageView: UIImageView = {
         let iv = UIImageView()
         iv.widthAnchor.constraint(equalToConstant: 64).isActive = true
         iv.heightAnchor.constraint(equalToConstant: 64).isActive = true
@@ -35,29 +35,29 @@ class AppsSearchCell: UICollectionViewCell {
         return iv
     }()
     
-    public let nameLabel: UILabel = {
+    fileprivate let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "APP NAME"
         return label
     }()
     
-    public let categoryLabel: UILabel = {
+    fileprivate let categoryLabel: UILabel = {
         let label = UILabel()
         label.text = "CATEGORY"
         return label
     }()
     
-    public let ratingsLabel: UILabel = {
+    fileprivate let ratingsLabel: UILabel = {
         let label = UILabel()
         label.text = "RATINGS"
         return label
     }()
     
-    lazy var screenshoot1ImageView = self.createImageView()
-    lazy var screenshoot2ImageView = self.createImageView()
-    lazy var screenshoot3ImageView = self.createImageView()
+    fileprivate lazy var screenshoot1ImageView = self.createImageView()
+    fileprivate lazy var screenshoot2ImageView = self.createImageView()
+    fileprivate lazy var screenshoot3ImageView = self.createImageView()
     
-    func createImageView() -> UIImageView {
+    fileprivate func createImageView() -> UIImageView {
         let iv = UIImageView()
         iv.layer.cornerRadius = 8
         iv.clipsToBounds = true
@@ -67,10 +67,9 @@ class AppsSearchCell: UICollectionViewCell {
         return iv
     }
     
-    public let getButton: UIButton = {
+    fileprivate let getButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("GET", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
         button.heightAnchor.constraint(equalToConstant: 32)

@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class AppsSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
+class SearchPageController: BaseCollectionController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     fileprivate let cellId = "searchCell"
     fileprivate var appResults = [Result]()
@@ -28,7 +28,6 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         collectionView.register(AppsSearchCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.addSubview(enterSearchLabel)
         enterSearchLabel.fillSuperview(padding: .init(top: 100, left: 50, bottom: 0, right: 50))
-//        fetchITunesApps()
         searchBar()
     }
     
@@ -84,13 +83,5 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsSearchCell
         cell.app = appResults[indexPath.item]
         return cell
-    }
-    
-    init() {
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
