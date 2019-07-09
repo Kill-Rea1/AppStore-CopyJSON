@@ -28,6 +28,7 @@
 		EDDA398A22D51CB20073AC2E /* AppsHeaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA398922D51CB20073AC2E /* AppsHeaderController.swift */; };
 		EDDA398C22D5207E0073AC2E /* AppHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA398B22D5207E0073AC2E /* AppHeaderCell.swift */; };
 		EDDA398E22D52A190073AC2E /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA398D22D52A190073AC2E /* AppGroup.swift */; };
+		EDDA399022D53E900073AC2E /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA398F22D53E900073AC2E /* SocialApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		EDDA398922D51CB20073AC2E /* AppsHeaderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderController.swift; sourceTree = "<group>"; };
 		EDDA398B22D5207E0073AC2E /* AppHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeaderCell.swift; sourceTree = "<group>"; };
 		EDDA398D22D52A190073AC2E /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		EDDA398F22D53E900073AC2E /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
 		EF461508BAD6D0F5CA2CC118 /* Pods-AppStore-Copy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore-Copy.debug.xcconfig"; path = "Target Support Files/Pods-AppStore-Copy/Pods-AppStore-Copy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +121,7 @@
 			children = (
 				ED8D12E922D41BF400D40E42 /* SearchResult.swift */,
 				EDDA398D22D52A190073AC2E /* AppGroup.swift */,
+				EDDA398F22D53E900073AC2E /* SocialApp.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				EDDA398622D5143B0073AC2E /* AppRowCell.swift in Sources */,
 				ED8D12E122D3FFDC00D40E42 /* AppsSearchConrtoller.swift in Sources */,
 				EDDA398A22D51CB20073AC2E /* AppsHeaderController.swift in Sources */,
+				EDDA399022D53E900073AC2E /* SocialApp.swift in Sources */,
 				ED8D12F522D4FF1900D40E42 /* AppsHorizontalController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
