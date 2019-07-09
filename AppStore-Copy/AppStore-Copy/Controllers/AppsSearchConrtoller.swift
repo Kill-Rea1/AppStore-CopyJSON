@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class AppsSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -21,20 +22,20 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
     }
     
     fileprivate func fetchITunesApps() {
-        Service.shared.fetchApps { (results, error) in
+        Service.shared.fetchApps { [weak self] (results, error) in
             if let error = error {
                 print(error)
                 return
             }
-            self.appResults = results
+            self?.appResults = results
             DispatchQueue.main.async {
-                self.collectionView.reloadData()
+                self?.collectionView.reloadData()
             }
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width, height: 250)
+        return .init(width: view.frame.width, height: 350)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -43,10 +44,7 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsSearchCell
-        let app = appResults[indexPath.item]
-        cell.nameLabel.text = app.trackName
-        cell.categoryLabel.text = app.primaryGenreName
-        cell.ratingsLabel.text = "Rating: \(app.averageUserRating ?? 0)"
+        cell.app = appResults[indexPath.item]
         return cell
     }
     
