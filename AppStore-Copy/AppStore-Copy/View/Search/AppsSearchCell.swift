@@ -25,63 +25,30 @@ class AppsSearchCell: UICollectionViewCell {
             }
         }
     }
-    
-    fileprivate let appIconImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.widthAnchor.constraint(equalToConstant: 64).isActive = true
-        iv.heightAnchor.constraint(equalToConstant: 64).isActive = true
-        iv.layer.cornerRadius = 12
-        iv.clipsToBounds = true
-        return iv
-    }()
-    
-    fileprivate let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "APP NAME"
-        return label
-    }()
-    
-    fileprivate let categoryLabel: UILabel = {
-        let label = UILabel()
-        label.text = "CATEGORY"
-        return label
-    }()
-    
-    fileprivate let ratingsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "RATINGS"
-        return label
-    }()
-    
+    fileprivate let appIconImageView = UIImageView(cornerRadius: 12)
+    fileprivate let nameLabel = UILabel()
+    fileprivate let categoryLabel = UILabel()
+    fileprivate let ratingsLabel = UILabel()
     fileprivate lazy var screenshoot1ImageView = self.createImageView()
     fileprivate lazy var screenshoot2ImageView = self.createImageView()
     fileprivate lazy var screenshoot3ImageView = self.createImageView()
     
     fileprivate func createImageView() -> UIImageView {
-        let iv = UIImageView()
-        iv.layer.cornerRadius = 8
-        iv.clipsToBounds = true
+        let iv = UIImageView(cornerRadius: 8)
         iv.layer.borderWidth = 0.5
         iv.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
-        iv.contentMode = .scaleAspectFill
         return iv
     }
     
-    fileprivate let getButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("GET", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 32)
-        button.backgroundColor = UIColor(white: 0.95, alpha: 1)
-        button.layer.cornerRadius = 16
-        return button
-    }()
+    fileprivate let getButton = UIButton(title: "GET", cornerRadius: 16, font: UIFont.boldSystemFont(ofSize: 16))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        
+        getButton.constraintWidth(constant: 80)
+        getButton.constraintHeight(constant: 32)
+        appIconImageView.constraintWidth(constant: 64)
+        appIconImageView.constraintHeight(constant: 64)
         let infoTopStackView = UIStackView(arrangedSubviews: [
             appIconImageView, VericalStackView(arrangedSubviews: [nameLabel, categoryLabel, ratingsLabel]), getButton
             ])

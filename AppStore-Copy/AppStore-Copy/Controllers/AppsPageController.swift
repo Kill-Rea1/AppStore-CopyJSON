@@ -71,8 +71,7 @@ class AppsPageController: BaseCollectionController, UICollectionViewDelegateFlow
             }
             self.socialApps = socialApps ?? []
         }
-        
-        
+        // completion
         dispatchGroup.notify(queue: .main) {
             if let group = group1 {
                 self.groups.append(group)
