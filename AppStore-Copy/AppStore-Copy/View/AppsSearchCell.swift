@@ -10,7 +10,7 @@ import UIKit
 
 class AppsSearchCell: UICollectionViewCell {
     
-    public let imageView: UIImageView = {
+    public let appIconImageView: UIImageView = {
         let iv = UIImageView()
         iv.backgroundColor = .red
         iv.widthAnchor.constraint(equalToConstant: 64).isActive = true
@@ -37,35 +37,48 @@ class AppsSearchCell: UICollectionViewCell {
         return label
     }()
     
+    lazy var screenshoot1ImageView = self.createImageView()
+    lazy var screenshoot2ImageView = self.createImageView()
+    lazy var screenshoot3ImageView = self.createImageView()
+    
+    func createImageView() -> UIImageView {
+        let iv = UIImageView()
+        iv.backgroundColor = .blue
+        return iv
+    }
+    
     public let getButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("GET", for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 32)
         button.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        button.layer.cornerRadius = 16
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
         
-        let labelsStackView = UIStackView(arrangedSubviews: [
-            nameLabel, categoryLabel, ratingsLabel
+        let infoTopStackView = UIStackView(arrangedSubviews: [
+            appIconImageView, VericalStackView(arrangedSubviews: [nameLabel, categoryLabel, ratingsLabel]), getButton
             ])
-        labelsStackView.axis = .vertical
+        infoTopStackView.alignment = .center
+        infoTopStackView.spacing = 12
         
-        let stackView = UIStackView(arrangedSubviews: [
-            imageView, labelsStackView, getButton
+        let screenshootsStackView = UIStackView(arrangedSubviews: [
+            screenshoot1ImageView, screenshoot2ImageView, screenshoot3ImageView
             ])
-        stackView.alignment = .center
-        stackView.spacing = 12
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(stackView)
-        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        screenshootsStackView.spacing = 12
+        screenshootsStackView.distribution = .fillEqually
+        
+        let cellStackView = VericalStackView(arrangedSubviews: [
+            infoTopStackView, screenshootsStackView], spacing: 16)
+        addSubview(cellStackView)
+        cellStackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
     }
     
     required init?(coder aDecoder: NSCoder) {
