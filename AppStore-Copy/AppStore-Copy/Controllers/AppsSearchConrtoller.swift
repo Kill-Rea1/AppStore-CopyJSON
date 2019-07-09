@@ -11,11 +11,26 @@ import UIKit
 class AppsSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     fileprivate let cellId = "searchCell"
+    fileprivate var appResults = [Result]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         collectionView.register(AppsSearchCell.self, forCellWithReuseIdentifier: cellId)
+        fetchITunesApps()
+    }
+    
+    fileprivate func fetchITunesApps() {
+        Service.shared.fetchApps { (results, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            self.appResults = results
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -23,11 +38,15 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return appResults.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsSearchCell
+        let app = appResults[indexPath.item]
+        cell.nameLabel.text = app.trackName
+        cell.categoryLabel.text = app.primaryGenreName
+        cell.ratingsLabel.text = "Rating: \(app.averageUserRating ?? 0)"
         return cell
     }
     

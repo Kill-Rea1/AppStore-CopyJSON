@@ -10,6 +10,8 @@
 		ED8D12E122D3FFDC00D40E42 /* AppsSearchConrtoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D12E022D3FFDC00D40E42 /* AppsSearchConrtoller.swift */; };
 		ED8D12E422D4037E00D40E42 /* AppsSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D12E322D4037E00D40E42 /* AppsSearchCell.swift */; };
 		ED8D12E722D40A1700D40E42 /* Helpers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D12E622D40A1700D40E42 /* Helpers+Extensions.swift */; };
+		ED8D12EA22D41BF400D40E42 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D12E922D41BF400D40E42 /* SearchResult.swift */; };
+		ED8D12ED22D4202800D40E42 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D12EC22D4202800D40E42 /* Service.swift */; };
 		EDD26FAB22D3F69000A3EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD26FAA22D3F69000A3EC47 /* AppDelegate.swift */; };
 		EDD26FAD22D3F69000A3EC47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD26FAC22D3F69000A3EC47 /* ViewController.swift */; };
 		EDD26FB022D3F69000A3EC47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD26FAE22D3F69000A3EC47 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 		ED8D12E022D3FFDC00D40E42 /* AppsSearchConrtoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchConrtoller.swift; sourceTree = "<group>"; };
 		ED8D12E322D4037E00D40E42 /* AppsSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchCell.swift; sourceTree = "<group>"; };
 		ED8D12E622D40A1700D40E42 /* Helpers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helpers+Extensions.swift"; sourceTree = "<group>"; };
+		ED8D12E922D41BF400D40E42 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		ED8D12EC22D4202800D40E42 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		EDD26FA722D3F69000A3EC47 /* AppStore-Copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppStore-Copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD26FAA22D3F69000A3EC47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDD26FAC22D3F69000A3EC47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +74,22 @@
 			path = "Helpers+Extensions";
 			sourceTree = "<group>";
 		};
+		ED8D12E822D41BDE00D40E42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED8D12E922D41BF400D40E42 /* SearchResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED8D12EB22D4201C00D40E42 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				ED8D12EC22D4202800D40E42 /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		EDD26F9E22D3F69000A3EC47 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +109,8 @@
 		EDD26FA922D3F69000A3EC47 /* AppStore-Copy */ = {
 			isa = PBXGroup;
 			children = (
+				ED8D12EB22D4201C00D40E42 /* Service */,
+				ED8D12E822D41BDE00D40E42 /* Model */,
 				ED8D12E522D409E800D40E42 /* Helpers+Extensions */,
 				ED8D12E222D4035F00D40E42 /* View */,
 				ED8D12DF22D3FFB500D40E42 /* Controllers */,
@@ -176,8 +198,10 @@
 			files = (
 				EDD26FC022D3F86300A3EC47 /* BaseTabController.swift in Sources */,
 				ED8D12E422D4037E00D40E42 /* AppsSearchCell.swift in Sources */,
+				ED8D12EA22D41BF400D40E42 /* SearchResult.swift in Sources */,
 				ED8D12E722D40A1700D40E42 /* Helpers+Extensions.swift in Sources */,
 				EDD26FB322D3F69000A3EC47 /* AppStore_Copy.xcdatamodeld in Sources */,
+				ED8D12ED22D4202800D40E42 /* Service.swift in Sources */,
 				EDD26FAD22D3F69000A3EC47 /* ViewController.swift in Sources */,
 				EDD26FAB22D3F69000A3EC47 /* AppDelegate.swift in Sources */,
 				ED8D12E122D3FFDC00D40E42 /* AppsSearchConrtoller.swift in Sources */,
