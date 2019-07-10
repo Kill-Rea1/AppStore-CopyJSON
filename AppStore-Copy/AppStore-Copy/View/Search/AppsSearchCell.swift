@@ -50,7 +50,7 @@ class AppsSearchCell: UICollectionViewCell {
         appIconImageView.constraintWidth(constant: 64)
         appIconImageView.constraintHeight(constant: 64)
         let infoTopStackView = UIStackView(arrangedSubviews: [
-            appIconImageView, VericalStackView(arrangedSubviews: [nameLabel, categoryLabel, ratingsLabel]), getButton
+            appIconImageView, VerticalStackView(arrangedSubviews: [nameLabel, categoryLabel, ratingsLabel]), getButton
             ])
         infoTopStackView.alignment = .center
         infoTopStackView.spacing = 12
@@ -61,7 +61,7 @@ class AppsSearchCell: UICollectionViewCell {
         screenshootsStackView.spacing = 12
         screenshootsStackView.distribution = .fillEqually
         
-        let cellStackView = VericalStackView(arrangedSubviews: [
+        let cellStackView = VerticalStackView(arrangedSubviews: [
             infoTopStackView, screenshootsStackView], spacing: 16)
         addSubview(cellStackView)
         cellStackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))

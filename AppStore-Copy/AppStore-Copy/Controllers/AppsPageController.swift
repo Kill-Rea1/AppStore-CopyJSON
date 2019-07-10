@@ -40,7 +40,7 @@ class AppsPageController: BaseCollectionController, UICollectionViewDelegateFlow
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
-        Service.shared.fetchTopFree { (appGroup, error) in
+        Service.shared.fetchGamesWeLove { (appGroup, error) in
             dispatchGroup.leave()
             if error != nil {
                 return
@@ -48,7 +48,7 @@ class AppsPageController: BaseCollectionController, UICollectionViewDelegateFlow
             group1 = appGroup
         }
         dispatchGroup.enter()
-        Service.shared.fetchGamesWeLove { (appGroup, error) in
+        Service.shared.fetchTopGrossingGames { (appGroup, error) in
             dispatchGroup.leave()
             if error != nil {
                 return
@@ -56,7 +56,7 @@ class AppsPageController: BaseCollectionController, UICollectionViewDelegateFlow
             group2 = appGroup
         }
         dispatchGroup.enter()
-        Service.shared.fetchTopGrossingGames { (appGroup, error) in
+        Service.shared.fetchTopFree { (appGroup, error) in
             dispatchGroup.leave()
             if error != nil {
                 return
@@ -108,6 +108,12 @@ class AppsPageController: BaseCollectionController, UICollectionViewDelegateFlow
         cell.titleLabel.text = appGroup.feed.title
         cell.horizontalController.appGroup = appGroup
         cell.horizontalController.collectionView.reloadData()
+        cell.horizontalController.didSelectHandler = { [weak self] feedResult in
+            let detailController = AppDetailController()
+            detailController.appId = feedResult.id
+            detailController.navigationItem.title = feedResult.name
+            self?.navigationController?.pushViewController(detailController, animated: true)
+        }
         return cell
     }
     

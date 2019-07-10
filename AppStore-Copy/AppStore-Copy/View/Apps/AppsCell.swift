@@ -8,21 +8,17 @@
 
 import UIKit
 
-class AppsCell: UICollectionViewCell {
+class AppsCell: BaseCollectionCell {
     
     public let titleLabel = UILabel(text: "App Section", font: UIFont.boldSystemFont(ofSize: 30))
     
     public let horizontalController = AppsHorizontalController()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func setupViews() {
+        super.setupViews()
         addSubview(titleLabel)
         titleLabel.addConsctraints(leadingAnchor, trailingAnchor, topAnchor, nil, .init(top: 0, left: 16, bottom: 0, right: 0))
         addSubview(horizontalController.view)
         horizontalController.view.addConsctraints(leadingAnchor, trailingAnchor, titleLabel.bottomAnchor, bottomAnchor)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

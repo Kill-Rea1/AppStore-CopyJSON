@@ -64,10 +64,11 @@ extension UIView {
 }
 
 extension UILabel {
-    convenience init(text: String, font: UIFont) {
+    convenience init(text: String, font: UIFont, numberOfLines: Int = 1) {
         self.init(frame: .zero)
         self.text = text
         self.font = font
+        self.numberOfLines = numberOfLines
     }
 }
 
@@ -90,7 +91,14 @@ extension UIButton {
     }
 }
 
-class VericalStackView: UIStackView {
+extension UIStackView {
+    convenience init(arrangedSubviews: [UIView], customSpacing: CGFloat = 0) {
+        self.init(arrangedSubviews: arrangedSubviews)
+        self.spacing = customSpacing
+    }
+}
+
+class VerticalStackView: UIStackView {
     init(arrangedSubviews: [UIView], spacing: CGFloat = 0) {
         super.init(frame: .zero)
         arrangedSubviews.forEach({addArrangedSubview($0)})
@@ -122,6 +130,19 @@ class HorizontalSnappingController: UICollectionViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+class BaseCollectionCell: UICollectionViewCell {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupViews(){}
 }
 
 class SnappingLayout: UICollectionViewFlowLayout {
