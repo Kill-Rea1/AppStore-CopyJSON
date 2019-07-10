@@ -10,12 +10,18 @@ import UIKit
 
 class TodayFullscreenController: UITableViewController {
     
-    var closeHandler: (()->())?
+    public var closeHandler: (()->())?
+    public var todayItem: TodayItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.showsVerticalScrollIndicator = false
+        let height = UIApplication.shared.statusBarFrame.height
+        tableView.contentInset = .init(top: 0, left: 0, bottom: height, right: 0)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,6 +32,8 @@ class TodayFullscreenController: UITableViewController {
         if indexPath.row == 0 {
             let cell = TodayFullscreenHeaderCell()
             cell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
+            cell.todayCell.todayItem = todayItem
+            cell.layer.cornerRadius = 0
             return cell
         }
         return TodayFullscreenDescriptionCell()
@@ -33,7 +41,7 @@ class TodayFullscreenController: UITableViewController {
     
     @objc fileprivate func handleDismiss(sender: UIButton) {
         sender.isHidden = true
-        closeHandler!()
+        closeHandler?()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -18,6 +18,11 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
     var widthConstraint: NSLayoutConstraint?
     var heightConstraint: NSLayoutConstraint?
     
+    let items = [
+        TodayItem.init(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), decription: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white),
+        TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", image: #imageLiteral(resourceName: "holiday"), decription: "Find out all you need to know on how to travel without packing everything!", backgroundColor: #colorLiteral(red: 0.9876399636, green: 0.9689267278, blue: 0.7308762074, alpha: 1))
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
@@ -28,7 +33,7 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let todayFullscreenController = TodayFullscreenController()
         let todayFullscreenView = todayFullscreenController.view!
-        todayFullscreenView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRemoveFullscreenView)))
+        todayFullscreenController.todayItem = items[indexPath.item]
         view.addSubview(todayFullscreenView)
         addChild(todayFullscreenController)
         self.todayFullscreenController = todayFullscreenController
@@ -56,13 +61,18 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
             self.heightConstraint?.constant = self.view.frame.height
             self.view.layoutIfNeeded()
             self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
+            
+            guard let cell = todayFullscreenController.tableView.cellForRow(at: [0, 0]) as? TodayFullscreenHeaderCell else { return }
+            cell.todayCell.topConstraint.constant = 48
+            cell.layoutIfNeeded()
+            
         }, completion: nil)
     }
     
     @objc fileprivate func handleRemoveFullscreenView() {
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             
-            self.todayFullscreenController.tableView.scrollRectToVisible(.zero, animated: true)
+            self.todayFullscreenController.tableView.contentOffset = .zero
             
             guard let startingFrame = self.startingFrame else { return }
             
@@ -72,11 +82,17 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
             self.heightConstraint?.constant = startingFrame.height
             self.view.layoutIfNeeded()
             
+            guard let cell = self.todayFullscreenController.tableView.cellForRow(at: [0, 0]) as? TodayFullscreenHeaderCell else { return }
+            cell.todayCell.topConstraint.constant = 24
+            cell.layoutIfNeeded()
+            
+            self.collectionView.isUserInteractionEnabled = false
             
             self.tabBarController?.tabBar.transform = .identity
         }) { (_) in
             self.todayFullscreenController.removeFromParent()
             self.todayFullscreenController.view.removeFromSuperview()
+            self.collectionView.isUserInteractionEnabled = true
         }
     }
     
@@ -93,11 +109,12 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return items.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayCellId, for: indexPath) as! TodayCell
+        cell.todayItem = items[indexPath.item]
         return cell
     }
 }

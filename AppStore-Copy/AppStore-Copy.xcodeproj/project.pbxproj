@@ -41,6 +41,7 @@
 		EDDA39AE22D65AEC0073AC2E /* TodayFullscreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39AD22D65AEC0073AC2E /* TodayFullscreenController.swift */; };
 		EDDA39B022D65DEC0073AC2E /* TodayFullscreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39AF22D65DEC0073AC2E /* TodayFullscreenDescriptionCell.swift */; };
 		EDDA39B222D66B1C0073AC2E /* TodayFullscreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39B122D66B1C0073AC2E /* TodayFullscreenHeaderCell.swift */; };
+		EDDA39B422D673B00073AC2E /* TodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39B322D673B00073AC2E /* TodayItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		EDDA39AD22D65AEC0073AC2E /* TodayFullscreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFullscreenController.swift; sourceTree = "<group>"; };
 		EDDA39AF22D65DEC0073AC2E /* TodayFullscreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFullscreenDescriptionCell.swift; sourceTree = "<group>"; };
 		EDDA39B122D66B1C0073AC2E /* TodayFullscreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFullscreenHeaderCell.swift; sourceTree = "<group>"; };
+		EDDA39B322D673B00073AC2E /* TodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayItem.swift; sourceTree = "<group>"; };
 		EF461508BAD6D0F5CA2CC118 /* Pods-AppStore-Copy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore-Copy.debug.xcconfig"; path = "Target Support Files/Pods-AppStore-Copy/Pods-AppStore-Copy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 				EDDA398D22D52A190073AC2E /* AppGroup.swift */,
 				EDDA398F22D53E900073AC2E /* SocialApp.swift */,
 				EDDA39A322D588D40073AC2E /* Reviews.swift */,
+				EDDA39B322D673B00073AC2E /* TodayItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				EDDA39B022D65DEC0073AC2E /* TodayFullscreenDescriptionCell.swift in Sources */,
 				ED8D12F522D4FF1900D40E42 /* AppsHorizontalController.swift in Sources */,
 				EDDA39A022D57F890073AC2E /* ReviewController.swift in Sources */,
+				EDDA39B422D673B00073AC2E /* TodayItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
