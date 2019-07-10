@@ -38,6 +38,9 @@
 		EDDA39A422D588D40073AC2E /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39A322D588D40073AC2E /* Reviews.swift */; };
 		EDDA39A722D649870073AC2E /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39A622D649870073AC2E /* TodayController.swift */; };
 		EDDA39AA22D64A3B0073AC2E /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39A922D64A3B0073AC2E /* TodayCell.swift */; };
+		EDDA39AE22D65AEC0073AC2E /* TodayFullscreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39AD22D65AEC0073AC2E /* TodayFullscreenController.swift */; };
+		EDDA39B022D65DEC0073AC2E /* TodayFullscreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39AF22D65DEC0073AC2E /* TodayFullscreenDescriptionCell.swift */; };
+		EDDA39B222D66B1C0073AC2E /* TodayFullscreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39B122D66B1C0073AC2E /* TodayFullscreenHeaderCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +78,9 @@
 		EDDA39A322D588D40073AC2E /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		EDDA39A622D649870073AC2E /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
 		EDDA39A922D64A3B0073AC2E /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
+		EDDA39AD22D65AEC0073AC2E /* TodayFullscreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFullscreenController.swift; sourceTree = "<group>"; };
+		EDDA39AF22D65DEC0073AC2E /* TodayFullscreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFullscreenDescriptionCell.swift; sourceTree = "<group>"; };
+		EDDA39B122D66B1C0073AC2E /* TodayFullscreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFullscreenHeaderCell.swift; sourceTree = "<group>"; };
 		EF461508BAD6D0F5CA2CC118 /* Pods-AppStore-Copy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore-Copy.debug.xcconfig"; path = "Target Support Files/Pods-AppStore-Copy/Pods-AppStore-Copy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				EDDA39A622D649870073AC2E /* TodayController.swift */,
+				EDDA39AD22D65AEC0073AC2E /* TodayFullscreenController.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -263,6 +270,8 @@
 			isa = PBXGroup;
 			children = (
 				EDDA39A922D64A3B0073AC2E /* TodayCell.swift */,
+				EDDA39AF22D65DEC0073AC2E /* TodayFullscreenDescriptionCell.swift */,
+				EDDA39B122D66B1C0073AC2E /* TodayFullscreenHeaderCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -389,6 +398,7 @@
 				EDDA399E22D57ED10073AC2E /* AppReviewRowCell.swift in Sources */,
 				ED8D12E422D4037E00D40E42 /* AppsSearchCell.swift in Sources */,
 				EDDA399C22D5791A0073AC2E /* PreviewScreenshotsController.swift in Sources */,
+				EDDA39B222D66B1C0073AC2E /* TodayFullscreenHeaderCell.swift in Sources */,
 				ED8D12EA22D41BF400D40E42 /* SearchResult.swift in Sources */,
 				ED8D12F022D4F6F500D40E42 /* AppsPageController.swift in Sources */,
 				ED8D12E722D40A1700D40E42 /* Helpers+Extensions.swift in Sources */,
@@ -404,9 +414,11 @@
 				EDD26FAB22D3F69000A3EC47 /* AppDelegate.swift in Sources */,
 				EDDA39AA22D64A3B0073AC2E /* TodayCell.swift in Sources */,
 				EDDA398622D5143B0073AC2E /* AppRowCell.swift in Sources */,
+				EDDA39AE22D65AEC0073AC2E /* TodayFullscreenController.swift in Sources */,
 				ED8D12E122D3FFDC00D40E42 /* AppsSearchConrtoller.swift in Sources */,
 				EDDA398A22D51CB20073AC2E /* AppsHeaderController.swift in Sources */,
 				EDDA399022D53E900073AC2E /* SocialApp.swift in Sources */,
+				EDDA39B022D65DEC0073AC2E /* TodayFullscreenDescriptionCell.swift in Sources */,
 				ED8D12F522D4FF1900D40E42 /* AppsHorizontalController.swift in Sources */,
 				EDDA39A022D57F890073AC2E /* ReviewController.swift in Sources */,
 			);
