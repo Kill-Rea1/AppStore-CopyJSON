@@ -110,9 +110,8 @@ class AppsPageController: BaseCollectionController, UICollectionViewDelegateFlow
         cell.horizontalController.appGroup = appGroup
         cell.horizontalController.collectionView.reloadData()
         cell.horizontalController.didSelectHandler = { [weak self] feedResult in
-            let detailController = AppDetailController()
-            detailController.appId = feedResult.id
-            self?.navigationController?.pushViewController(detailController, animated: true)
+            let appDetailController = AppDetailController(appId: feedResult.id)
+            self?.navigationController?.pushViewController(appDetailController, animated: true)
         }
         return cell
     }

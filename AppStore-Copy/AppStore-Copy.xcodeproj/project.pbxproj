@@ -36,6 +36,8 @@
 		EDDA39A022D57F890073AC2E /* ReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA399F22D57F890073AC2E /* ReviewController.swift */; };
 		EDDA39A222D583AC0073AC2E /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39A122D583AC0073AC2E /* ReviewCell.swift */; };
 		EDDA39A422D588D40073AC2E /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39A322D588D40073AC2E /* Reviews.swift */; };
+		EDDA39A722D649870073AC2E /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39A622D649870073AC2E /* TodayController.swift */; };
+		EDDA39AA22D64A3B0073AC2E /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39A922D64A3B0073AC2E /* TodayCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		EDDA399F22D57F890073AC2E /* ReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewController.swift; sourceTree = "<group>"; };
 		EDDA39A122D583AC0073AC2E /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		EDDA39A322D588D40073AC2E /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
+		EDDA39A622D649870073AC2E /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
+		EDDA39A922D64A3B0073AC2E /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
 		EF461508BAD6D0F5CA2CC118 /* Pods-AppStore-Copy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore-Copy.debug.xcconfig"; path = "Target Support Files/Pods-AppStore-Copy/Pods-AppStore-Copy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +110,7 @@
 		ED8D12DF22D3FFB500D40E42 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EDDA39A522D649760073AC2E /* Today */,
 				EDDA398322D513D30073AC2E /* Search */,
 				ED8D12EE22D4F6E600D40E42 /* Apps */,
 				EDD26FBF22D3F86300A3EC47 /* BaseTabController.swift */,
@@ -116,6 +121,7 @@
 		ED8D12E222D4035F00D40E42 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EDDA39A822D64A300073AC2E /* Today */,
 				EDDA398422D513DD0073AC2E /* Search */,
 				ED8D12F122D4F8F600D40E42 /* Apps */,
 			);
@@ -243,6 +249,22 @@
 				EDDA39A122D583AC0073AC2E /* ReviewCell.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		EDDA39A522D649760073AC2E /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				EDDA39A622D649870073AC2E /* TodayController.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		EDDA39A822D64A300073AC2E /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				EDDA39A922D64A3B0073AC2E /* TodayCell.swift */,
+			);
+			path = Today;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,10 +397,12 @@
 				EDDA399A22D5710A0073AC2E /* AppPreviewCell.swift in Sources */,
 				ED8D12ED22D4202800D40E42 /* Service.swift in Sources */,
 				EDDA39A222D583AC0073AC2E /* ReviewCell.swift in Sources */,
+				EDDA39A722D649870073AC2E /* TodayController.swift in Sources */,
 				EDDA398C22D5207E0073AC2E /* AppHeaderCell.swift in Sources */,
 				EDDA398E22D52A190073AC2E /* AppGroup.swift in Sources */,
 				ED8D12F322D4F90300D40E42 /* AppsCell.swift in Sources */,
 				EDD26FAB22D3F69000A3EC47 /* AppDelegate.swift in Sources */,
+				EDDA39AA22D64A3B0073AC2E /* TodayCell.swift in Sources */,
 				EDDA398622D5143B0073AC2E /* AppRowCell.swift in Sources */,
 				ED8D12E122D3FFDC00D40E42 /* AppsSearchConrtoller.swift in Sources */,
 				EDDA398A22D51CB20073AC2E /* AppsHeaderController.swift in Sources */,
