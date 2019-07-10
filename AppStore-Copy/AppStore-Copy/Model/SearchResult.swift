@@ -22,4 +22,6 @@ struct Result: Decodable {
     let formattedPrice: String
     let description: String
     let releaseNotes: String
+    let sellerName: String
+    let version: String
 }

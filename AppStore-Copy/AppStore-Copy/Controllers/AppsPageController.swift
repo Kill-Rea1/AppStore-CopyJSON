@@ -24,6 +24,7 @@ class AppsPageController: BaseCollectionController, UICollectionViewDelegateFlow
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.register(AppsCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(AppsPageHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         view.addSubview(activityIndicatorView)
@@ -111,7 +112,6 @@ class AppsPageController: BaseCollectionController, UICollectionViewDelegateFlow
         cell.horizontalController.didSelectHandler = { [weak self] feedResult in
             let detailController = AppDetailController()
             detailController.appId = feedResult.id
-            detailController.navigationItem.title = feedResult.name
             self?.navigationController?.pushViewController(detailController, animated: true)
         }
         return cell

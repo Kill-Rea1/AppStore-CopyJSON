@@ -24,7 +24,6 @@ class PreviewSceenshotController: HorizontalSnappingController, UICollectionView
         override func setupViews() {
             super.setupViews()
             addSubview(screenshotImageView)
-            screenshotImageView.backgroundColor = .purple
             screenshotImageView.fillSuperview()
         }
     }
@@ -32,6 +31,7 @@ class PreviewSceenshotController: HorizontalSnappingController, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(ScreenshotCell.self, forCellWithReuseIdentifier: screenshotCellId)
         collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
     }

@@ -16,6 +16,7 @@ class AppHeaderCell: BaseCollectionCell {
     
     override func setupViews() {
         super.setupViews()
+        companyLabel.textColor = #colorLiteral(red: 0.01094629336, green: 0.4777928591, blue: 0.9984855056, alpha: 1)
         let stackView = VerticalStackView(arrangedSubviews: [
             companyLabel, titleLabel, imageView
             ], spacing: 12)

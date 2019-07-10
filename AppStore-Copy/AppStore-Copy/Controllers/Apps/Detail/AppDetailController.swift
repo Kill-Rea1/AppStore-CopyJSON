@@ -14,12 +14,28 @@ class AppDetailController: BaseCollectionController, UICollectionViewDelegateFlo
     fileprivate let previewCellId = "previewCell"
     fileprivate let reviewCellId = "reviewCell"
     var app: Result?
+    var reviews: Reviews?
     var appId: String? {
         didSet {
             let urlString = "https://itunes.apple.com/lookup?id=\(appId ?? "")"
             Service.shared.fetchGenericJSONData(urlString: urlString) { (result: SearchResult?, error) in
+                if let error = error {
+                    print("Failed to decode result:", error)
+                    return
+                }
                 let app = result?.results.first
                 self.app = app
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+            let reviewsUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId ?? "")/sortby=mostrecent/json?l=en&cc=us"
+            Service.shared.fetchGenericJSONData(urlString: reviewsUrl) { (reviews: Reviews?, error) in
+                if let error = error {
+                    print("Failed to decode reviews:", error)
+                    return
+                }
+                self.reviews = reviews
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
@@ -30,6 +46,7 @@ class AppDetailController: BaseCollectionController, UICollectionViewDelegateFlo
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.register(AppDetailCell.self, forCellWithReuseIdentifier: detailCellId)
         collectionView.register(AppPreviewCell.self, forCellWithReuseIdentifier: previewCellId)
         collectionView.register(AppReviewRowCell.self, forCellWithReuseIdentifier: reviewCellId)
@@ -69,7 +86,12 @@ class AppDetailController: BaseCollectionController, UICollectionViewDelegateFlo
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reviewCellId, for: indexPath) as! AppReviewRowCell
+            cell.horizontalController.reviews = reviews
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 0, left: 0, bottom: 16, right: 0)
     }
 }

@@ -25,6 +25,7 @@ class SearchPageController: BaseCollectionController, UICollectionViewDelegateFl
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.register(AppsSearchCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.addSubview(enterSearchLabel)
         enterSearchLabel.fillSuperview(padding: .init(top: 100, left: 50, bottom: 0, right: 50))

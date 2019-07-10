@@ -16,18 +16,23 @@ class AppDetailCell: BaseCollectionCell {
             appIconImageView.sd_setImage(with: URL(string: app?.artworkUrl100 ?? ""))
             priceButton.setTitle(app?.formattedPrice, for: .normal)
             releaseNotesLabel.text = app?.releaseNotes
+            companyLabel.text = app?.trackName
+            versionLabel.text = app?.version
         }
     }
     
     fileprivate let appIconImageView = UIImageView(cornerRadius: 12)
-    fileprivate let nameLabel = UILabel(text: "App Name", font: .boldSystemFont(ofSize: 24), numberOfLines: 2)
+    fileprivate let nameLabel = UILabel(text: "App Name", font: .boldSystemFont(ofSize: 20), numberOfLines: 2)
+    fileprivate let companyLabel = UILabel(text: "Company name", font: .systemFont(ofSize: 14))
     fileprivate let priceButton = UIButton(title: "$4.99", cornerRadius: 16, font: .boldSystemFont(ofSize: 16))
-    fileprivate let whatsNewLabel = UILabel(text: "What's New", font: .boldSystemFont(ofSize: 24))
-    fileprivate let releaseNotesLabel = UILabel(text: "Release Notes", font: .systemFont(ofSize: 18), numberOfLines: 0)
+    fileprivate let whatsNewLabel = UILabel(text: "What's New", font: .boldSystemFont(ofSize: 20))
+    fileprivate let versionLabel = UILabel(text: "Version", font: .systemFont(ofSize: 16))
+    fileprivate let releaseNotesLabel = UILabel(text: "Release Notes", font: .systemFont(ofSize: 16), numberOfLines: 0)
     
     override func setupViews() {
         super.setupViews()
-        
+        companyLabel.textColor = .lightGray
+        versionLabel.textColor = .lightGray
         appIconImageView.constraintWidth(constant: 140)
         appIconImageView.constraintHeight(constant: 140)
         priceButton.constraintHeight(constant: 32)
@@ -39,9 +44,10 @@ class AppDetailCell: BaseCollectionCell {
             UIStackView(arrangedSubviews: [
                 appIconImageView,
                 VerticalStackView(arrangedSubviews: [
-                    nameLabel, UIStackView(arrangedSubviews: [priceButton, UIView()]), UIView()
+                    nameLabel, companyLabel, UIView(),UIStackView(arrangedSubviews: [priceButton, UIView()]), UIView()
                     ], spacing: 12)], customSpacing: 20),
             whatsNewLabel,
+            versionLabel,
             releaseNotesLabel
             ], spacing: 16)
         addSubview(stackView)

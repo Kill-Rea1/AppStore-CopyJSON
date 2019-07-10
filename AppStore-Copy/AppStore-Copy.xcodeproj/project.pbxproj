@@ -35,6 +35,7 @@
 		EDDA399E22D57ED10073AC2E /* AppReviewRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA399D22D57ED10073AC2E /* AppReviewRowCell.swift */; };
 		EDDA39A022D57F890073AC2E /* ReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA399F22D57F890073AC2E /* ReviewController.swift */; };
 		EDDA39A222D583AC0073AC2E /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39A122D583AC0073AC2E /* ReviewCell.swift */; };
+		EDDA39A422D588D40073AC2E /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39A322D588D40073AC2E /* Reviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		EDDA399D22D57ED10073AC2E /* AppReviewRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewRowCell.swift; sourceTree = "<group>"; };
 		EDDA399F22D57F890073AC2E /* ReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewController.swift; sourceTree = "<group>"; };
 		EDDA39A122D583AC0073AC2E /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		EDDA39A322D588D40073AC2E /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		EF461508BAD6D0F5CA2CC118 /* Pods-AppStore-Copy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore-Copy.debug.xcconfig"; path = "Target Support Files/Pods-AppStore-Copy/Pods-AppStore-Copy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 				ED8D12E922D41BF400D40E42 /* SearchResult.swift */,
 				EDDA398D22D52A190073AC2E /* AppGroup.swift */,
 				EDDA398F22D53E900073AC2E /* SocialApp.swift */,
+				EDDA39A322D588D40073AC2E /* Reviews.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDDA399322D55BEC0073AC2E /* AppDetailController.swift in Sources */,
+				EDDA39A422D588D40073AC2E /* Reviews.swift in Sources */,
 				EDD26FC022D3F86300A3EC47 /* BaseTabController.swift in Sources */,
 				EDDA399622D5609A0073AC2E /* AppDetailCell.swift in Sources */,
 				EDDA399E22D57ED10073AC2E /* AppReviewRowCell.swift in Sources */,
