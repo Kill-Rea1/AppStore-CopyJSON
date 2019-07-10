@@ -23,8 +23,8 @@ class AppDetailController: BaseCollectionController, UICollectionViewDelegateFlo
     fileprivate let detailCellId = "detailCell"
     fileprivate let previewCellId = "previewCell"
     fileprivate let reviewCellId = "reviewCell"
-    var app: Result?
-    var reviews: Reviews?
+    fileprivate var app: Result?
+    fileprivate var reviews: Reviews?
     
     override func viewDidLoad() {
         super.viewDidLoad()

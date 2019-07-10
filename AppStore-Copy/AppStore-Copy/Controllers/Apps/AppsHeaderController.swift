@@ -10,8 +10,8 @@ import UIKit
 
 class AppsHeaderController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "headerCell"
-    var socialApps = [SocialApp]()
+    fileprivate let cellId = "headerCell"
+    public var socialApps = [SocialApp]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,9 +10,12 @@ import UIKit
 
 class AppsHorizontalController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "appRowCellId"
-    var appGroup: AppGroup?
-    var didSelectHandler: ((FeedResult)->())?
+    fileprivate let spacing: CGFloat = 12
+    fileprivate let lineSpacing: CGFloat = 10
+    
+    fileprivate let cellId = "appRowCellId"
+    public var appGroup: AppGroup?
+    public var didSelectHandler: ((FeedResult)->())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +43,6 @@ class AppsHorizontalController: HorizontalSnappingController, UICollectionViewDe
         cell.imageView.sd_setImage(with: URL(string: app?.artworkUrl100 ?? ""))
         return cell
     }
-    
-    let spacing: CGFloat = 12
-    let lineSpacing: CGFloat = 10
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = (view.frame.height - 24 - 20) / 3

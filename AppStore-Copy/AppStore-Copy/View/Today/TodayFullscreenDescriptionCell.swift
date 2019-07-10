@@ -10,7 +10,7 @@ import UIKit
 
 class TodayFullscreenDescriptionCell: UITableViewCell {
     
-    let descriptionLabel: UILabel = {
+    fileprivate let descriptionLabel: UILabel = {
         let label = UILabel()
         
         let attributedText = NSMutableAttributedString(string: "Great games", attributes: [.foregroundColor: UIColor.black])

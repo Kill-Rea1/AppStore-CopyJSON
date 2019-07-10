@@ -10,7 +10,7 @@ import UIKit
 
 class AppPreviewCell: BaseCollectionCell {
     fileprivate let previewLabel = UILabel(text: "Preview", font: .boldSystemFont(ofSize: 24))
-    let horizontalController = PreviewSceenshotController()
+    public let horizontalController = PreviewSceenshotController()
     
     override func setupViews() {
         super.setupViews()

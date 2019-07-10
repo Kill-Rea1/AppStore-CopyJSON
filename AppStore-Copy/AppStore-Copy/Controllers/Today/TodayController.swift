@@ -10,24 +10,27 @@ import UIKit
 
 class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLayout {
     
-    fileprivate let todayCellId = "todayCell"
+    static let cellSize: CGFloat = 500
+    
     fileprivate var startingFrame: CGRect?
     fileprivate var todayFullscreenController: TodayFullscreenController!
-    var topConstraint: NSLayoutConstraint?
-    var leadingConstraint: NSLayoutConstraint?
-    var widthConstraint: NSLayoutConstraint?
-    var heightConstraint: NSLayoutConstraint?
+    fileprivate var topConstraint: NSLayoutConstraint?
+    fileprivate var leadingConstraint: NSLayoutConstraint?
+    fileprivate var widthConstraint: NSLayoutConstraint?
+    fileprivate var heightConstraint: NSLayoutConstraint?
     
     let items = [
-        TodayItem.init(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), decription: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white),
-        TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", image: #imageLiteral(resourceName: "holiday"), decription: "Find out all you need to know on how to travel without packing everything!", backgroundColor: #colorLiteral(red: 0.9876399636, green: 0.9689267278, blue: 0.7308762074, alpha: 1))
+        TodayItem.init(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), decription: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white, cellType: .single),
+        TodayItem.init(category: "THE DAILY LIST", title: "Test-Drive These CarPlay Apps", image: #imageLiteral(resourceName: "garden"), decription: "", backgroundColor: .white, cellType: .multiple),
+        TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", image: #imageLiteral(resourceName: "holiday"), decription: "Find out all you need to know on how to travel without packing everything!", backgroundColor: #colorLiteral(red: 0.9876399636, green: 0.9689267278, blue: 0.7308762074, alpha: 1), cellType: .single)
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         collectionView.backgroundColor = #colorLiteral(red: 0.948936522, green: 0.9490727782, blue: 0.9489068389, alpha: 1)
-        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: todayCellId)
+        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
+        collectionView.register(TodayMultipleAppCell.self, forCellWithReuseIdentifier: TodayItem.CellType.multiple.rawValue)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -97,7 +100,7 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width - 64, height: 400)
+        return .init(width: view.frame.width - 64, height: TodayController.cellSize)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -113,7 +116,9 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: todayCellId, for: indexPath) as! TodayCell
+        
+        let cellType = items[indexPath.item].cellType
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.rawValue, for: indexPath) as! BaseTodayCell
         cell.todayItem = items[indexPath.item]
         return cell
     }

@@ -42,6 +42,8 @@
 		EDDA39B022D65DEC0073AC2E /* TodayFullscreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39AF22D65DEC0073AC2E /* TodayFullscreenDescriptionCell.swift */; };
 		EDDA39B222D66B1C0073AC2E /* TodayFullscreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39B122D66B1C0073AC2E /* TodayFullscreenHeaderCell.swift */; };
 		EDDA39B422D673B00073AC2E /* TodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39B322D673B00073AC2E /* TodayItem.swift */; };
+		EDDA39B622D683F70073AC2E /* TodayMultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39B522D683F70073AC2E /* TodayMultipleAppCell.swift */; };
+		EDDA39B822D68CEA0073AC2E /* BaseTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39B722D68CEA0073AC2E /* BaseTodayCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,8 @@
 		EDDA39AF22D65DEC0073AC2E /* TodayFullscreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFullscreenDescriptionCell.swift; sourceTree = "<group>"; };
 		EDDA39B122D66B1C0073AC2E /* TodayFullscreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFullscreenHeaderCell.swift; sourceTree = "<group>"; };
 		EDDA39B322D673B00073AC2E /* TodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayItem.swift; sourceTree = "<group>"; };
+		EDDA39B522D683F70073AC2E /* TodayMultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppCell.swift; sourceTree = "<group>"; };
+		EDDA39B722D68CEA0073AC2E /* BaseTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTodayCell.swift; sourceTree = "<group>"; };
 		EF461508BAD6D0F5CA2CC118 /* Pods-AppStore-Copy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore-Copy.debug.xcconfig"; path = "Target Support Files/Pods-AppStore-Copy/Pods-AppStore-Copy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -275,6 +279,8 @@
 				EDDA39A922D64A3B0073AC2E /* TodayCell.swift */,
 				EDDA39AF22D65DEC0073AC2E /* TodayFullscreenDescriptionCell.swift */,
 				EDDA39B122D66B1C0073AC2E /* TodayFullscreenHeaderCell.swift */,
+				EDDA39B522D683F70073AC2E /* TodayMultipleAppCell.swift */,
+				EDDA39B722D68CEA0073AC2E /* BaseTodayCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -397,6 +403,7 @@
 				EDDA399322D55BEC0073AC2E /* AppDetailController.swift in Sources */,
 				EDDA39A422D588D40073AC2E /* Reviews.swift in Sources */,
 				EDD26FC022D3F86300A3EC47 /* BaseTabController.swift in Sources */,
+				EDDA39B622D683F70073AC2E /* TodayMultipleAppCell.swift in Sources */,
 				EDDA399622D5609A0073AC2E /* AppDetailCell.swift in Sources */,
 				EDDA399E22D57ED10073AC2E /* AppReviewRowCell.swift in Sources */,
 				ED8D12E422D4037E00D40E42 /* AppsSearchCell.swift in Sources */,
@@ -411,6 +418,7 @@
 				ED8D12ED22D4202800D40E42 /* Service.swift in Sources */,
 				EDDA39A222D583AC0073AC2E /* ReviewCell.swift in Sources */,
 				EDDA39A722D649870073AC2E /* TodayController.swift in Sources */,
+				EDDA39B822D68CEA0073AC2E /* BaseTodayCell.swift in Sources */,
 				EDDA398C22D5207E0073AC2E /* AppHeaderCell.swift in Sources */,
 				EDDA398E22D52A190073AC2E /* AppGroup.swift in Sources */,
 				ED8D12F322D4F90300D40E42 /* AppsCell.swift in Sources */,

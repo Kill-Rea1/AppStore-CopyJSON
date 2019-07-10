@@ -10,8 +10,8 @@ import UIKit
 
 class PreviewSceenshotController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
-    let screenshotCellId = "screenshotCell"
-    var app: Result? {
+    fileprivate let screenshotCellId = "screenshotCell"
+    public var app: Result? {
         didSet {
             collectionView.reloadData()
         }
