@@ -44,6 +44,8 @@
 		EDDA39B422D673B00073AC2E /* TodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39B322D673B00073AC2E /* TodayItem.swift */; };
 		EDDA39B622D683F70073AC2E /* TodayMultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39B522D683F70073AC2E /* TodayMultipleAppCell.swift */; };
 		EDDA39B822D68CEA0073AC2E /* BaseTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39B722D68CEA0073AC2E /* BaseTodayCell.swift */; };
+		EDDA39BA22D690D80073AC2E /* TodayMultiplyAppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39B922D690D80073AC2E /* TodayMultiplyAppsController.swift */; };
+		EDDA39BC22D6913E0073AC2E /* MultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDA39BB22D6913E0073AC2E /* MultipleAppCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,8 @@
 		EDDA39B322D673B00073AC2E /* TodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayItem.swift; sourceTree = "<group>"; };
 		EDDA39B522D683F70073AC2E /* TodayMultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppCell.swift; sourceTree = "<group>"; };
 		EDDA39B722D68CEA0073AC2E /* BaseTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTodayCell.swift; sourceTree = "<group>"; };
+		EDDA39B922D690D80073AC2E /* TodayMultiplyAppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultiplyAppsController.swift; sourceTree = "<group>"; };
+		EDDA39BB22D6913E0073AC2E /* MultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAppCell.swift; sourceTree = "<group>"; };
 		EF461508BAD6D0F5CA2CC118 /* Pods-AppStore-Copy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore-Copy.debug.xcconfig"; path = "Target Support Files/Pods-AppStore-Copy/Pods-AppStore-Copy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,6 +273,7 @@
 			children = (
 				EDDA39A622D649870073AC2E /* TodayController.swift */,
 				EDDA39AD22D65AEC0073AC2E /* TodayFullscreenController.swift */,
+				EDDA39B922D690D80073AC2E /* TodayMultiplyAppsController.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 				EDDA39B122D66B1C0073AC2E /* TodayFullscreenHeaderCell.swift */,
 				EDDA39B522D683F70073AC2E /* TodayMultipleAppCell.swift */,
 				EDDA39B722D68CEA0073AC2E /* BaseTodayCell.swift */,
+				EDDA39BB22D6913E0073AC2E /* MultipleAppCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -413,8 +419,10 @@
 				ED8D12F022D4F6F500D40E42 /* AppsPageController.swift in Sources */,
 				ED8D12E722D40A1700D40E42 /* Helpers+Extensions.swift in Sources */,
 				EDDA398822D51AD60073AC2E /* AppsPageHeader.swift in Sources */,
+				EDDA39BC22D6913E0073AC2E /* MultipleAppCell.swift in Sources */,
 				EDD26FB322D3F69000A3EC47 /* AppStore_Copy.xcdatamodeld in Sources */,
 				EDDA399A22D5710A0073AC2E /* AppPreviewCell.swift in Sources */,
+				EDDA39BA22D690D80073AC2E /* TodayMultiplyAppsController.swift in Sources */,
 				ED8D12ED22D4202800D40E42 /* Service.swift in Sources */,
 				EDDA39A222D583AC0073AC2E /* ReviewCell.swift in Sources */,
 				EDDA39A722D649870073AC2E /* TodayController.swift in Sources */,

@@ -25,19 +25,19 @@ extension UIView {
         }
     }
     
-    func addConsctraints(_ leadingAnchor: NSLayoutXAxisAnchor?, _ trailingAnchor: NSLayoutXAxisAnchor?, _ topAnchor: NSLayoutYAxisAnchor?, _ bottomAnchor: NSLayoutYAxisAnchor?, _ padding: UIEdgeInsets = .zero, _ size: CGSize = .zero) {
+    func addConsctraints(_ leading: NSLayoutXAxisAnchor?, _ trailing: NSLayoutXAxisAnchor?, _ top: NSLayoutYAxisAnchor?, _ bottom: NSLayoutYAxisAnchor?, _ padding: UIEdgeInsets = .zero, _ size: CGSize = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
-        if let leading = leadingAnchor {
-            self.leadingAnchor.constraint(equalTo: leading, constant: padding.left).isActive = true
+        if let leading = leading {
+            leadingAnchor.constraint(equalTo: leading, constant: padding.left).isActive = true
         }
-        if let trailing = trailingAnchor {
-            self.trailingAnchor.constraint(equalTo: trailing, constant: -padding.right).isActive = true
+        if let trailing = trailing {
+            trailingAnchor.constraint(equalTo: trailing, constant: -padding.right).isActive = true
         }
-        if let top = topAnchor {
-            self.topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
+        if let top = top {
+            topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
         }
-        if let bottom = bottomAnchor {
-            self.bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true
+        if let bottom = bottom {
+            bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true
         }
         
         addSize(to: size)
@@ -45,10 +45,10 @@ extension UIView {
     
     func addSize(to size: CGSize) {
         if size.width != 0 {
-            widthAnchor.constraint(equalToConstant: size.width)
+            widthAnchor.constraint(equalToConstant: size.width).isActive = true
         }
         if size.height != 0 {
-            heightAnchor.constraint(equalToConstant: size.height)
+            heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
     }
     
@@ -194,5 +194,16 @@ class SnappingLayout: UICollectionViewFlowLayout {
         })
         
         return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
+    }
+}
+
+class CustomNavigationController: UINavigationController, UIGestureRecognizerDelegate {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.interactivePopGestureRecognizer?.delegate = self
+    }
+    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return self.viewControllers.count > 1
     }
 }

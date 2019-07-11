@@ -14,13 +14,13 @@ class TodayMultipleAppCell: BaseTodayCell {
         didSet {
             categoryLabel.text = todayItem.category
             titleLabel.text = todayItem.title
+            multipleAppsController.apps = todayItem.apps
         }
     }
     
     fileprivate let categoryLabel = UILabel(text: "Category", font: .boldSystemFont(ofSize: 20))
     fileprivate let titleLabel = UILabel(text: "Title", font: .boldSystemFont(ofSize: 32), numberOfLines: 2)
-    
-    fileprivate let multipleAppsController = UIViewController()
+    public let multipleAppsController = TodayMultiplyAppsController(mode: .small)
     
     override func setupViews() {
         super.setupViews()
