@@ -17,6 +17,7 @@ class TodayCell: BaseTodayCell {
             descriptionLabel.text = todayItem.decription
             imageView.image = todayItem.image
             backgroundColor = todayItem.backgroundColor
+            backgroundView?.backgroundColor = todayItem.backgroundColor
         }
     }
     public var topConstraint: NSLayoutConstraint!
@@ -29,7 +30,7 @@ class TodayCell: BaseTodayCell {
         super.setupViews()
         backgroundColor = .white
         layer.cornerRadius = 16
-        clipsToBounds = true
+        imageView.clipsToBounds = true
         let containerImageView = UIView()
         imageView.contentMode = .scaleAspectFill
         containerImageView.addSubview(imageView)

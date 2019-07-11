@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct AnchoredConstraints {
+    var top, leading, bottom, trailing, width, height: NSLayoutConstraint?
+}
+
 extension UIView {
     func fillSuperview(padding: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
@@ -25,31 +29,32 @@ extension UIView {
         }
     }
     
-    func addConsctraints(_ leading: NSLayoutXAxisAnchor?, _ trailing: NSLayoutXAxisAnchor?, _ top: NSLayoutYAxisAnchor?, _ bottom: NSLayoutYAxisAnchor?, _ padding: UIEdgeInsets = .zero, _ size: CGSize = .zero) {
+    @discardableResult
+    func addConsctraints(_ leading: NSLayoutXAxisAnchor?, _ trailing: NSLayoutXAxisAnchor?, _ top: NSLayoutYAxisAnchor?, _ bottom: NSLayoutYAxisAnchor?, _ padding: UIEdgeInsets = .zero, _ size: CGSize = .zero) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
+        var anchoredConstraints = AnchoredConstraints()
         if let leading = leading {
-            leadingAnchor.constraint(equalTo: leading, constant: padding.left).isActive = true
+            anchoredConstraints.leading = leadingAnchor.constraint(equalTo: leading, constant: padding.left)
         }
         if let trailing = trailing {
-            trailingAnchor.constraint(equalTo: trailing, constant: -padding.right).isActive = true
+            anchoredConstraints.trailing = trailingAnchor.constraint(equalTo: trailing, constant: -padding.right)
         }
         if let top = top {
-            topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
+            anchoredConstraints.top = topAnchor.constraint(equalTo: top, constant: padding.top)
         }
         if let bottom = bottom {
-            bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true
+            anchoredConstraints.bottom = bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom)
         }
         
-        addSize(to: size)
-    }
-    
-    func addSize(to size: CGSize) {
         if size.width != 0 {
-            widthAnchor.constraint(equalToConstant: size.width).isActive = true
+            anchoredConstraints.width = widthAnchor.constraint(equalToConstant: size.width)
         }
         if size.height != 0 {
-            heightAnchor.constraint(equalToConstant: size.height).isActive = true
+            anchoredConstraints.height = heightAnchor.constraint(equalToConstant: size.height)
         }
+        
+        [anchoredConstraints.leading, anchoredConstraints.trailing, anchoredConstraints.top, anchoredConstraints.bottom, anchoredConstraints.width, anchoredConstraints.height].forEach({$0?.isActive = true})
+        return anchoredConstraints
     }
     
     func constraintWidth(constant: CGFloat) {

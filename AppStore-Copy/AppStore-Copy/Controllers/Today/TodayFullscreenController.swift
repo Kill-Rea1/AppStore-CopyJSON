@@ -33,6 +33,7 @@ class TodayFullscreenController: UITableViewController {
             let cell = TodayFullscreenHeaderCell()
             cell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
             cell.todayCell.todayItem = todayItem
+            cell.clipsToBounds = true
             cell.layer.cornerRadius = 0
             return cell
         }
