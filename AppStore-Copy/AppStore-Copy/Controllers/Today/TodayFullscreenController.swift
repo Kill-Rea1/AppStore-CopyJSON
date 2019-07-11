@@ -13,6 +13,13 @@ class TodayFullscreenController: UITableViewController {
     public var closeHandler: (()->())?
     public var todayItem: TodayItem?
     
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y < 0 {
+            scrollView.isScrollEnabled = false
+            scrollView.isScrollEnabled = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -34,7 +41,8 @@ class TodayFullscreenController: UITableViewController {
             cell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
             cell.todayCell.todayItem = todayItem
             cell.clipsToBounds = true
-            cell.layer.cornerRadius = 0
+            cell.todayCell.backgroundView = nil
+            cell.todayCell.layer.cornerRadius = 0
             return cell
         }
         return TodayFullscreenDescriptionCell()

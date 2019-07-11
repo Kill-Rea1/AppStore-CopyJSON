@@ -8,10 +8,11 @@
 
 import UIKit
 
-class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLayout {
+class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
     static let cellSize: CGFloat = 500
     
+    fileprivate var todayFullScreenBeginOffset: CGFloat = 0
     fileprivate var startingFrame: CGRect?
     fileprivate var todayFullscreenController: TodayFullscreenController!
     fileprivate var anchoredConstraints: AnchoredConstraints?
@@ -29,14 +30,20 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
         tabBarController?.tabBar.superview?.setNeedsLayout()
     }
     
+    fileprivate let blurVisualEffect = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(blurVisualEffect)
+        blurVisualEffect.fillSuperview()
+        blurVisualEffect.alpha = 0
         view.addSubview(activityIndicatorView)
         activityIndicatorView.centerInSuperview()
         navigationController?.isNavigationBarHidden = true
         collectionView.backgroundColor = #colorLiteral(red: 0.948936522, green: 0.9490727782, blue: 0.9489068389, alpha: 1)
         collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
         collectionView.register(TodayMultipleAppCell.self, forCellWithReuseIdentifier: TodayItem.CellType.multiple.rawValue)
+        
         fetchData()
     }
     
@@ -99,6 +106,35 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
         }
         todayFullscreenController.view.layer.cornerRadius = 16
         self.todayFullscreenController = todayFullscreenController
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleDrag))
+        todayFullscreenController.view.addGestureRecognizer(panGesture)
+        panGesture.delegate = self
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    @objc fileprivate func handleDrag(gesture: UIPanGestureRecognizer) {
+        if gesture.state == .began {
+            todayFullScreenBeginOffset = todayFullscreenController.tableView.contentOffset.y
+        }
+        if todayFullscreenController.tableView.contentOffset.y > 0 {
+            return
+        }
+        let translationY = gesture.translation(in: todayFullscreenController.view).y
+        if gesture.state == .changed {
+            let trueOffset = translationY - todayFullScreenBeginOffset
+            var scale = min(1, 1 - trueOffset / 1000)
+            scale = max(0.6, scale)
+            let transform: CGAffineTransform = .init(scaleX: scale, y: scale)
+            todayFullscreenController.view.transform = transform
+        } else if gesture.state == .ended {
+            if translationY > 0 {
+                handleRemoveFullscreenView()
+            }
+        }
     }
     
     fileprivate func startingCellFrame(_ indexPath: IndexPath) {
@@ -119,6 +155,7 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
     
     fileprivate func performAnimationFullscreen() {
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
+            self.blurVisualEffect.alpha = 1
             self.anchoredConstraints?.top?.constant = 0
             self.anchoredConstraints?.leading?.constant = 0
             self.anchoredConstraints?.width?.constant = self.view.frame.width
@@ -139,7 +176,9 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
     
     @objc fileprivate func handleRemoveFullscreenView() {
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
+            self.blurVisualEffect.alpha = 0
             self.todayFullscreenController.tableView.contentOffset = .zero
+            self.todayFullscreenController.view.transform = .identity
             guard let startingFrame = self.startingFrame else { return }
             self.anchoredConstraints?.top?.constant = startingFrame.origin.y
             self.anchoredConstraints?.leading?.constant = startingFrame.origin.x
@@ -147,6 +186,7 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
             self.anchoredConstraints?.height?.constant = startingFrame.height
             self.view.layoutIfNeeded()
             guard let cell = self.todayFullscreenController.tableView.cellForRow(at: [0, 0]) as? TodayFullscreenHeaderCell else { return }
+            cell.closeButton.alpha = 0
             cell.todayCell.topConstraint.constant = 24
             cell.layoutIfNeeded()
             self.collectionView.isUserInteractionEnabled = false
