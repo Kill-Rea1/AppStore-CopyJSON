@@ -127,6 +127,7 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
         if gesture.state == .changed {
             let trueOffset = translationY - todayFullScreenBeginOffset
             var scale = min(1, 1 - trueOffset / 1000)
+            todayFullscreenController.closeButton.alpha = scale * 0.9
             scale = max(0.6, scale)
             let transform: CGAffineTransform = .init(scaleX: scale, y: scale)
             todayFullscreenController.view.transform = transform
@@ -186,7 +187,7 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
             self.anchoredConstraints?.height?.constant = startingFrame.height
             self.view.layoutIfNeeded()
             guard let cell = self.todayFullscreenController.tableView.cellForRow(at: [0, 0]) as? TodayFullscreenHeaderCell else { return }
-            cell.closeButton.alpha = 0
+            self.todayFullscreenController.closeButton.alpha = 0
             cell.todayCell.topConstraint.constant = 24
             cell.layoutIfNeeded()
             self.collectionView.isUserInteractionEnabled = false
