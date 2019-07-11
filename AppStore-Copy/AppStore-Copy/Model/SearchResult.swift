@@ -19,10 +19,13 @@ struct Result: Decodable {
     let primaryGenreName: String
     var averageUserRating: Float?
     let artworkUrl100: String
-    let screenshotUrls: [String]
+    var screenshotUrls: [String]?
     var formattedPrice: String?
-    let description: String
+//    let description: String
     var releaseNotes: String?
-    let sellerName: String
-    let version: String
+    var sellerName: String?
+    var version: String?
+    var artistName: String?
+    var collectionName: String?
+    
 }

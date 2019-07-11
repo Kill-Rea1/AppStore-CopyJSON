@@ -52,7 +52,7 @@ class TodayMultiplyAppsController: BaseCollectionController, UICollectionViewDel
     
     fileprivate func setupCloseButton() {
         view.addSubview(closeButton)
-        closeButton.addConsctraints(nil, view.trailingAnchor, view.topAnchor, nil, .init(top: 44, left: 0, bottom: 0, right: 16), .init(width: 44, height: 44))
+        closeButton.addConsctraints(nil, view.trailingAnchor, view.topAnchor, nil, .init(top: 20, left: 0, bottom: 0, right: 16), .init(width: 44, height: 44))
     }
     
     @objc fileprivate func handleDismiss() {

@@ -16,12 +16,12 @@ class AppsSearchCell: UICollectionViewCell {
             categoryLabel.text = app.primaryGenreName
             ratingsLabel.text = "Rating: \(app.averageUserRating ?? 0)"
             appIconImageView.sd_setImage(with: URL(string: app.artworkUrl100))
-            screenshoot1ImageView.sd_setImage(with: URL(string: app.screenshotUrls[0]))
-            if app.screenshotUrls.count > 1 {
-                screenshoot2ImageView.sd_setImage(with: URL(string: app.screenshotUrls[1]))
+            screenshoot1ImageView.sd_setImage(with: URL(string: app.screenshotUrls![0]))
+            if app.screenshotUrls!.count > 1 {
+                screenshoot2ImageView.sd_setImage(with: URL(string: app.screenshotUrls![1]))
             }
-            if app.screenshotUrls.count > 2 {
-                screenshoot3ImageView.sd_setImage(with: URL(string: app.screenshotUrls[2]))
+            if app.screenshotUrls!.count > 2 {
+                screenshoot3ImageView.sd_setImage(with: URL(string: app.screenshotUrls![2]))
             }
         }
     }
