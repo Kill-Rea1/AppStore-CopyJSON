@@ -155,6 +155,7 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
     }
     
     fileprivate func performAnimationFullscreen() {
+        let height = tabBarController!.tabBar.frame.size.height
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             self.blurVisualEffect.alpha = 1
             self.anchoredConstraints?.top?.constant = 0
@@ -162,11 +163,14 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
             self.anchoredConstraints?.width?.constant = self.view.frame.width
             self.anchoredConstraints?.height?.constant = self.view.frame.height
             self.view.layoutIfNeeded()
-            self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
+            
+            let frame = self.tabBarController!.tabBar.frame
+            self.tabBarController!.tabBar.frame = frame.offsetBy(dx: 0, dy: height)
+            
             guard let cell = self.todayFullscreenController.tableView.cellForRow(at: [0, 0]) as? TodayFullscreenHeaderCell else { return }
             cell.todayCell.topConstraint.constant = 48
             cell.layoutIfNeeded()
-        }, completion: nil)
+        })
     }
     
     fileprivate func showSingleAppFullscreen(_ indexPath: IndexPath) {
@@ -176,6 +180,7 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
     }
     
     @objc fileprivate func handleRemoveFullscreenView() {
+        let height = tabBarController!.tabBar.frame.size.height
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             self.blurVisualEffect.alpha = 0
             self.todayFullscreenController.tableView.contentOffset = .zero
@@ -191,7 +196,8 @@ class TodayController: BaseCollectionController, UICollectionViewDelegateFlowLay
             cell.todayCell.topConstraint.constant = 24
             cell.layoutIfNeeded()
             self.collectionView.isUserInteractionEnabled = false
-            self.tabBarController?.tabBar.transform = .identity
+            let frame = self.tabBarController!.tabBar.frame
+            self.tabBarController?.tabBar.frame = frame.offsetBy(dx: 0, dy: -height)
         }) { (_) in
             self.todayFullscreenController.removeFromParent()
             self.todayFullscreenController.view.removeFromSuperview()
